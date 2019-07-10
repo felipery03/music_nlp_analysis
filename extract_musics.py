@@ -34,6 +34,14 @@ def get_top_100():
     
     return top_100
 
+# Get top 20 music of given artist from Letras.mus.br
+def get_letras_top20_musics(artista):
+    htmlparse = BeautifulSoup(requests.get("https://www.letras.mus.br/"+artista.replace(' ', '-')).content, 'html.parser')
+    testes = htmlparse.find('div', {'class':'artista-top g-sp g-pr'})
+    music = testes.findAll('span')
+    return music
+    
+
 # Testing funtctions above:
 
 
@@ -49,4 +57,8 @@ for artist in top_100:
 
 df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
 df.to_csv('data/dataset_lyrics.csv', index=False) 
+
+top20music = get_letras_top20_musics("lady gaga")
+for m in top20music:
+    print(m.text)
 

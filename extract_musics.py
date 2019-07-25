@@ -28,6 +28,22 @@ def get_music_names(artist):
         music_names.append(line.get('href'))
     return music_names
 
+# Given an artist, this function returns 25 top songs of this artist
+def get_top25_music_names(artist):
+    print("Artista: " + artist)
+    url_artist = url + '/{}/'.format(artist)
+    req = BeautifulSoup(requests.get(url_artist).content, 'html.parser')
+    trecho = req.find('ol', {'id': 'topMusicList'})
+    if(trecho != None):
+        musicas = trecho.findAll('a', {'class': 'nameMusic'})
+        musicaddr = []
+        for mus in musicas:
+            musicaddr.append(mus.get('href'))
+        print (musicaddr)
+        return musicaddr
+    else:
+        return get_music_names(artist) 
+
 # Get top 100 artists in vagalume website
 def get_top_100():
     url_top = url + 'top100/artistas/nacional/'
@@ -99,22 +115,28 @@ def calculo_neighborhood(vetor_frase, palavra_position,neighborhood_size):
 # Testing funtctions above:
 
 
-# top_100 = get_top_100()
+top_100 = get_top_100()
 
-# final_list = []
+final_list = []
 
-# for artist in top_100:
-#    music_names = get_music_names(artist)
-#    for music in music_names:
-#        lyrics = get_lyrics(url + music)
-#        final_list.append([artist, music, lyrics])
+for artist in top_100:
+#   music_names = get_music_names(artist)
+    music_names = get_top25_music_names(artist)
+    for music in music_names:
+        lyrics = get_lyrics(url + music)
+        final_list.append([artist, music, lyrics])
 
-# df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
-# df.to_csv('data/dataset_lyrics.csv', index=False) 
+df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
+df.to_csv('data/dataset_lyrics.csv', index=False) 
+
+
+#print(get_top25_music_names('marilia-mendonca'))
+
+
 
 # top20music = get_letras_top20_musics("lady gaga")
 # for m in top20music:
 #    print(m.text)
 
-print(get_pt("eu perguntava do you wanna dance?",1))
-print(get_pt("juntos e shallow now",1))
+# print(get_pt("eu perguntava do you wanna dance?",1))
+# print(get_pt("juntos e shallow now",1))

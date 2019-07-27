@@ -1,13 +1,20 @@
+# -*- coding: utf-8 -*-
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from textblob import TextBlob as tb #pip install textblob
 import nltk
-
+import langid
+import os
 
 
 
 url = 'https://www.vagalume.com.br/'
+
+dicionario_addr = 'dicionario.txt'
+
+dicionario = {}
 
 # Given a music, this function returns its lytics
 def get_lyrics(url):
@@ -63,39 +70,84 @@ def get_letras_top20_musics(artista):
     return music
 
 # translate phrase words to pt 
-def get_pt(frase, vizinhanca):
+# avoid due to excedent use of google requisitions (limited to 1000/day)
+# def get_pt(frase, vizinhanca):
+#     fraseretorno = ""
+#     split_frase = frase.split(" ")
+#     for x in range (0, len(split_frase)):
+#         palavra = split_frase[x]
+#         if(len(palavra)>2):                 #function only works for words with len>2
+#             if(check_isLanguage(palavra)):      #checks if word and phrase are same language
+#                 fraseretorno+=palavra
+#             else:                           #not same language
+#                 fraseretorno+=getFinalword(split_frase,x,vizinhanca)
+#         else:
+#             fraseretorno+=palavra
+#         fraseretorno+=" "
+#     return fraseretorno
+
+# def check_isLanguage(palavra):
+#     palavratb = tb(palavra)
+#     lang_palavra = palavratb.detect_language()
+#     if(lang_palavra != "pt"):
+#         return False
+#     return True
+
+# def getFinalword(vetor_frase, palavra_position, neighborhood_size):       #check with neighborhood and gives final word
+#     menor, maior = calculo_neighborhood(vetor_frase,palavra_position, neighborhood_size)
+#     frasefinal = ""
+#     for i in range (menor, maior+1):
+#         frasefinal+= " " + vetor_frase[palavra_position+i]            
+#     frasefinaltb = tb(frasefinal)
+#     lang_frasefinal = frasefinaltb.detect_language()
+#     if(lang_frasefinal != "pt"):
+#         palavratb = tb(vetor_frase[palavra_position])
+#         return str(palavratb.translate(to="pt"))
+#     return vetor_frase[palavra_position] 
+
+    # translate phrase words to pt 
+def langid_pt(frase_init, vizinhanca):
+    frase = frase_init.lower()
     fraseretorno = ""
     split_frase = frase.split(" ")
     for x in range (0, len(split_frase)):
-        palavra = split_frase[x]
-        if(len(palavra)>2):                 #function only works for words with len>2
-            if(check_isLanguage(palavra)):      #checks if word and phrase are same language
-                fraseretorno+=palavra
-            else:                           #not same language
-                fraseretorno+=getFinalword(split_frase,x,vizinhanca)
-        else:
+        palavra = split_frase[x]      #function only works for words with len>2
+        if(langid_ispt(palavra)):      #checks if word and phrase are same language
             fraseretorno+=palavra
+        else:                           #not same language
+            fraseretorno+=langid_translate(split_frase,x,vizinhanca)
         fraseretorno+=" "
     return fraseretorno
 
-def check_isLanguage(palavra):
-    palavratb = tb(palavra)
-    lang_palavra = palavratb.detect_language()
-    if(lang_palavra != "pt"):
+def langid_ispt(palavra):
+    lang = langid.classify(palavra) #devolve formato (lingua, confiança)
+    if(lang[0] !="pt"):
         return False
     return True
 
-def getFinalword(vetor_frase, palavra_position, neighborhood_size):       #check with neighborhood and gives final word
+def langid_translate(vetor_frase, palavra_position, neighborhood_size):       #check with neighborhood and gives final word
     menor, maior = calculo_neighborhood(vetor_frase,palavra_position, neighborhood_size)
     frasefinal = ""
     for i in range (menor, maior+1):
-        frasefinal+= " " + vetor_frase[palavra_position+i]            
-    frasefinaltb = tb(frasefinal)
-    lang_frasefinal = frasefinaltb.detect_language()
-    if(lang_frasefinal != "pt"):
-        palavratb = tb(vetor_frase[palavra_position])
-        return str(palavratb.translate(to="pt"))
+        frasefinal+= vetor_frase[palavra_position+i]            
+        if(i!=maior):
+            frasefinal+=" "
+    lang_frasefinal = langid.classify(frasefinal) 
+    if(lang_frasefinal[0] != "pt"):
+        return pt_dictionary(vetor_frase[palavra_position])
     return vetor_frase[palavra_position]    
+
+def pt_dictionary(palavra):
+    if palavra in dicionario:
+        print(palavra + ": já está no dic!")
+        return dicionario[palavra]
+    else:
+        palavratb = tb(palavra)
+        traducao = str(palavratb.translate(to="pt"))
+        dicionario[palavra] = traducao
+        add_dicionario(dicionario_addr,palavra)
+        print(palavra + ": adicionado ao dic!")
+        return traducao
 
 def calculo_neighborhood(vetor_frase, palavra_position,neighborhood_size):
     menor = 0
@@ -109,30 +161,68 @@ def calculo_neighborhood(vetor_frase, palavra_position,neighborhood_size):
             maior = i
             break
     return menor, maior
-            
+
+def load_dicionario(arquivo):
+    if os.path.exists(arquivo):
+        fl = open(arquivo, "r", encoding='utf-8')    
+        for line in fl.readlines():
+            palavra, traducao = line.split(':')
+            dicionario[palavra] = traducao
+        fl.close()
+    else:
+        fl = open(arquivo, 'w+')
+
+def add_dicionario(arquivo, chave):
+    if os.path.exists(arquivo):
+        f = open(arquivo,'a', encoding='utf-8')
+    else:
+        f = open(arquivo, 'w+',encoding='utf-8')
+    f.write(chave +":"+ dicionario[chave]+"\n")
+    f.close()
+
+
+
 
 
 # Testing funtctions above:
 
 
-top_100 = get_top_100()
+# top_100 = get_top_100()
 
-final_list = []
+# final_list = []
 
-for artist in top_100:
-#   music_names = get_music_names(artist)
-    music_names = get_top25_music_names(artist)
-    for music in music_names:
-        lyrics = get_lyrics(url + music)
-        final_list.append([artist, music, lyrics])
+# for artist in top_100:
+# #   music_names = get_music_names(artist)
+#     music_names = get_top25_music_names(artist)
+#     for music in music_names:
+#         lyrics = get_lyrics(url + music)
+#         final_list.append([artist, music, lyrics])
 
-df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
-df.to_csv('data/dataset_lyrics.csv', index=False) 
+# df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
+# df.to_csv('data/dataset_lyrics.csv', index=False) 
+
+#Teste da função para usar menos requisições!
+#teste do dicionario
+
+load_dicionario(dicionario_addr)
+print("Dicionario inicial: ") 
+for d in dicionario:
+    print("- " + d + " : " + dicionario[d])
+print("\n\n fim \n\n")
+langid_pt("hello",0)
+langid_pt("gusta",0)
+langid_pt("hello",0)
+langid_pt("Hello",0)
+print("Dicionario final: ") 
+for d in dicionario:
+    print("- " + d + " : " + dicionario[d])
+print("\n\n fim \n\n")
+
+
+
 
 
 #print(get_top25_music_names('marilia-mendonca'))
-
-
 
 # top20music = get_letras_top20_musics("lady gaga")
 # for m in top20music:

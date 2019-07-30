@@ -51,7 +51,7 @@ def get_top25_music_names(artist):
         print (musicaddr)
         return musicaddr
     else:
-        return get_music_names(artist) 
+        return get_music_names(artist)
 
 # Get top 100 artists in vagalume website
 def get_top_100():
@@ -61,7 +61,7 @@ def get_top_100():
     top_100 = soup.findAll('a', {'class': 'w1 h22'})
     for i in range(len(top_100)):
         top_100[i] = top_100[i].get('href')
-    
+
     return top_100
 
 # Get top 20 music of given artist from Letras.mus.br
@@ -71,7 +71,7 @@ def get_letras_top20_musics(artista):
     music = testes.findAll('span')
     return music
 
-# translate phrase words to pt 
+# translate phrase words to pt
 # avoid due to excedent use of google requisitions (limited to 1000/day)
 # def get_pt(frase, vizinhanca):
 #     fraseretorno = ""
@@ -99,26 +99,29 @@ def get_letras_top20_musics(artista):
 #     menor, maior = calculo_neighborhood(vetor_frase,palavra_position, neighborhood_size)
 #     frasefinal = ""
 #     for i in range (menor, maior+1):
-#         frasefinal+= " " + vetor_frase[palavra_position+i]            
+#         frasefinal+= " " + vetor_frase[palavra_position+i]
 #     frasefinaltb = tb(frasefinal)
 #     lang_frasefinal = frasefinaltb.detect_language()
 #     if(lang_frasefinal != "pt"):
 #         palavratb = tb(vetor_frase[palavra_position])
 #         return str(palavratb.translate(to="pt"))
-#     return vetor_frase[palavra_position] 
+#     return vetor_frase[palavra_position]
 
-    # translate phrase words to pt 
+    # translate phrase words to pt
 def langid_pt(frase_init, vizinhanca):
     frase = frase_init.lower()
     fraseretorno = ""
     split_frase = frase.split(" ")
     for x in range (0, len(split_frase)):
-        palavra = split_frase[x].rstrip().lstrip()      
+        palavra = split_frase[x].rstrip().lstrip()
         if(langid_ispt(palavra)):      #checks if word and phrase are same language
+            print("não vai traduzir " + palavra)
             fraseretorno+=palavra
         else:                           #not same language
+            print("vai traduzir " +palavra)
             fraseretorno+=langid_translate(split_frase,x,vizinhanca)
         fraseretorno+=" "
+    print(fraseretorno)
     return fraseretorno
 
 def langid_ispt(palavra):
@@ -131,19 +134,19 @@ def langid_translate(vetor_frase, palavra_position, neighborhood_size):       #c
     menor, maior = calculo_neighborhood(vetor_frase,palavra_position, neighborhood_size)
     frasefinal = ""
     for i in range (menor, maior+1):
-        frasefinal+= vetor_frase[palavra_position+i]            
+        frasefinal+= vetor_frase[palavra_position+i]
         if(i!=maior):
             frasefinal+=" "
-    lang_frasefinal = langid.classify(frasefinal) 
+    lang_frasefinal = langid.classify(frasefinal)
     #print("ling: "+lang_frasefinal[0])
     if(lang_frasefinal[0] == "pt"):
-        return vetor_frase[palavra_position] 
+        return vetor_frase[palavra_position]
     else:
         try:
             return pt_dictionary(vetor_frase[palavra_position], lang_frasefinal[0]).rstrip().lstrip()
         except:
             return vetor_frase[palavra_position]
-       
+
 
 def pt_dictionary(palavra, lang):
     if palavra in dicionario:
@@ -151,7 +154,9 @@ def pt_dictionary(palavra, lang):
         return dicionario[palavra]
     else:
         palavratb = tb(palavra)
+        print("traduzir para colocar no dic " + palavra)
         traducao = str(palavratb.translate(from_lang=lang,to="pt"))
+        print("traduzido " + palavra + " para " + traducao)
         dicionario[palavra] = traducao
         add_dicionario(dicionario_addr,palavra)
         print(palavra + ": adicionado ao dic!")
@@ -159,9 +164,9 @@ def pt_dictionary(palavra, lang):
 
 def calculo_neighborhood(vetor_frase, palavra_position,neighborhood_size):
     menor = 0
-    for i in range (neighborhood_size,0,-1):                    
+    for i in range (neighborhood_size,0,-1):
         if palavra_position-i >= 0:
-            menor = -i                        
+            menor = -i
             break
     maior = 0
     for i in range (neighborhood_size,0,-1):
@@ -172,7 +177,7 @@ def calculo_neighborhood(vetor_frase, palavra_position,neighborhood_size):
 
 def load_dicionario(arquivo):
     if os.path.exists(arquivo):
-        fl = open(arquivo, "r", encoding='utf-8')    
+        fl = open(arquivo, "r", encoding='utf-8')
         for line in fl.readlines():
             palavra, traducao = line.split(':')
             dicionario[palavra] = traducao
@@ -192,6 +197,7 @@ def translate(song):
     verses = song.split('\n')
     translated_verses = list(map(lambda x: langid_pt(x,1), verses))
     full_song = "".join(translated_verses)
+    print(full_song)
     return full_song
 
 # Testing funtctions above:
@@ -209,7 +215,7 @@ def translate(song):
 #         final_list.append([artist, music, lyrics])
 
 # df = pd.DataFrame(final_list, columns=['artist', 'music_name', 'lyrics'])
-# df.to_csv('data/dataset_lyrics.csv', index=False) 
+# df.to_csv('data/dataset_lyrics.csv', index=False)
 
 #Teste da função para usar menos requisições!
 #teste do dicionario
@@ -217,13 +223,28 @@ def translate(song):
 
 load_dicionario(dicionario_addr)
 
+import re
+
 df = pd.read_csv('data/dataset_lyrics.csv')
+
+#removes compilations
+df = df[(df.artist != '/colecao-amo-voce/')&(df.artist != '/corinhos-infantis/')&(df.artist != '/corinhos-evangelicos/')&
+        (df.artist != '/harpa-crista/')&(df.artist != '/hinos/')&(df.artist != '/musicas-catolicas/')&(df.artist != '/musicas-gospel/')&
+        (df.artist != '/pineapple/')&(df.artist != '/umbanda/')&(df.artist != '/alok/')]
+
+#data cleansing
+df['lyrics'] = df['lyrics'].str.strip('<div data-plugin=""googleTranslate"" id=""lyrics"">')
+df['lyrics'] = df['lyrics'].str.strip('<img alt="Instrumental" class="instrumental-icon" src="/img/etc/instrumental.png"/')
+df['lyrics'] = df['lyrics'].apply(lambda x: x.lower())
+df['lyrics'] = df['lyrics'].apply(lambda x: re.sub('[0-9!,.;:\]?}{()"["|@#$%*]', "", x))
+
 df['translated'] = df['lyrics'].apply(lambda x: translate(x))
 
+df.to_csv('data/dataset.csv', index=False)
 
 
 
-# print("Dicionario inicial: ") 
+# print("Dicionario inicial: ")
 # for d in dicionario:
 #     print("- " + d + " : " + dicionario[d])
 # print("\n\n fim \n\n")
@@ -231,7 +252,7 @@ df['translated'] = df['lyrics'].apply(lambda x: translate(x))
 # # langid_pt("gusta",0)
 # # langid_pt("hello",0)
 # # langid_pt("Hello",0)
-# print("Dicionario final: ") 
+# print("Dicionario final: ")
 # for d in dicionario:
 #     print("- " + d + " : " + dicionario[d])
 # print("\n\n fim \n\n")

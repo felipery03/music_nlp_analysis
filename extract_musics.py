@@ -10,10 +10,12 @@ import os
 
 
 
+
 url = 'https://www.vagalume.com.br/'
 
-dicionario_addr = 'dicionario.txt'
+langid.set_languages(['pt','es','en'])
 
+dicionario_addr = 'dicionario.txt'
 dicionario = {}
 
 # Given a music, this function returns its lytics
@@ -111,7 +113,7 @@ def langid_pt(frase_init, vizinhanca):
     fraseretorno = ""
     split_frase = frase.split(" ")
     for x in range (0, len(split_frase)):
-        palavra = split_frase[x]      #function only works for words with len>2
+        palavra = split_frase[x].rstrip().lstrip()      
         if(langid_ispt(palavra)):      #checks if word and phrase are same language
             fraseretorno+=palavra
         else:                           #not same language
@@ -133,17 +135,23 @@ def langid_translate(vetor_frase, palavra_position, neighborhood_size):       #c
         if(i!=maior):
             frasefinal+=" "
     lang_frasefinal = langid.classify(frasefinal) 
-    if(lang_frasefinal[0] != "pt"):
-        return pt_dictionary(vetor_frase[palavra_position])
-    return vetor_frase[palavra_position]    
+    #print("ling: "+lang_frasefinal[0])
+    if(lang_frasefinal[0] == "pt"):
+        return vetor_frase[palavra_position] 
+    else:
+        try:
+            return pt_dictionary(vetor_frase[palavra_position], lang_frasefinal[0]).rstrip().lstrip()
+        except:
+            return vetor_frase[palavra_position]
+       
 
-def pt_dictionary(palavra):
+def pt_dictionary(palavra, lang):
     if palavra in dicionario:
         print(palavra + ": já está no dic!")
         return dicionario[palavra]
     else:
         palavratb = tb(palavra)
-        traducao = str(palavratb.translate(to="pt"))
+        traducao = str(palavratb.translate(from_lang=lang,to="pt"))
         dicionario[palavra] = traducao
         add_dicionario(dicionario_addr,palavra)
         print(palavra + ": adicionado ao dic!")
@@ -180,9 +188,11 @@ def add_dicionario(arquivo, chave):
     f.write(chave +":"+ dicionario[chave]+"\n")
     f.close()
 
-
-
-
+def translate(song):
+    verses = song.split('\n')
+    translated_verses = list(map(lambda x: langid_pt(x,1), verses))
+    full_song = "".join(translated_verses)
+    return full_song
 
 # Testing funtctions above:
 
@@ -204,20 +214,28 @@ def add_dicionario(arquivo, chave):
 #Teste da função para usar menos requisições!
 #teste do dicionario
 
-load_dicionario(dicionario_addr)
-print("Dicionario inicial: ") 
-for d in dicionario:
-    print("- " + d + " : " + dicionario[d])
-print("\n\n fim \n\n")
-langid_pt("hello",0)
-langid_pt("gusta",0)
-langid_pt("hello",0)
-langid_pt("Hello",0)
-print("Dicionario final: ") 
-for d in dicionario:
-    print("- " + d + " : " + dicionario[d])
-print("\n\n fim \n\n")
 
+load_dicionario(dicionario_addr)
+
+df = pd.read_csv('data/dataset_lyrics.csv')
+df['translated'] = df['lyrics'].apply(lambda x: translate(x))
+
+
+
+
+# print("Dicionario inicial: ") 
+# for d in dicionario:
+#     print("- " + d + " : " + dicionario[d])
+# print("\n\n fim \n\n")
+# a = langid_pt("você wanna dance?",0)
+# # langid_pt("gusta",0)
+# # langid_pt("hello",0)
+# # langid_pt("Hello",0)
+# print("Dicionario final: ") 
+# for d in dicionario:
+#     print("- " + d + " : " + dicionario[d])
+# print("\n\n fim \n\n")
+# print(a)
 
 
 

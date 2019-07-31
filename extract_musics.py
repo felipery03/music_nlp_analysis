@@ -232,6 +232,9 @@ df = df[(df.artist != '/colecao-amo-voce/')&(df.artist != '/corinhos-infantis/')
         (df.artist != '/harpa-crista/')&(df.artist != '/hinos/')&(df.artist != '/musicas-catolicas/')&(df.artist != '/musicas-gospel/')&
         (df.artist != '/pineapple/')&(df.artist != '/umbanda/')&(df.artist != '/alok/')]
 
+#removes artists with less than 25 songs
+df = df[(df.artist != '/melim/')&(df.artist != '/kell-smith/')&(df.artist != '/midiam-lima/')&(df.artist != '/isadora-pompeo/')]
+
 #data cleansing
 df['lyrics'] = df['lyrics'].str.strip('<div data-plugin=""googleTranslate"" id=""lyrics"">')
 df['lyrics'] = df['lyrics'].str.strip('<img alt="Instrumental" class="instrumental-icon" src="/img/etc/instrumental.png"/')

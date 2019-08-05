@@ -1,0 +1,5 @@
+mas:mais
+tocar:toque
+conformei:Eu concordo
+amar:Meu
+todo:tudo

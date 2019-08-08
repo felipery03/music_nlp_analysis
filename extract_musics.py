@@ -241,10 +241,13 @@ df['lyrics'] = df['lyrics'].str.strip('<img alt="Instrumental" class="instrument
 df['lyrics'] = df['lyrics'].apply(lambda x: x.lower())
 df['lyrics'] = df['lyrics'].apply(lambda x: re.sub('[0-9!,.;:\]?}{()"["|@#$%*]', "", x))
 
-df['translated'] = df['lyrics'].apply(lambda x: translate(x))
+# df['translated'] = df['lyrics'].apply(lambda x: translate(x))
 
-df.to_csv('data/dataset.csv', index=False)
+# df.to_csv('data/dataset.csv', index=False)
 
+palavratb = tb("morning")
+trad = str(palavratb.translate(from_lang="en",to="pt"))
+print(trad)
 
 
 # print("Dicionario inicial: ")

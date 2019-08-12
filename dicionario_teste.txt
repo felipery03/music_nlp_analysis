@@ -3434,3 +3434,646 @@ terminesno:terminado
 un:um
 misterio:mistério
 cine:cinema
+noches:noites
+define:definir
+pasar:pasar
+mi:mi
+tienes:você tem
+sueno:sueno
+bajando:descendo
+piel:piel
+enredarte:ficar emaranhado
+piernas:pernas
+empate:gravata
+esto:isso
+darle:dê isso
+jaque:cheque
+mate:fosco
+pal':pal '
+suelta:solto
+estrés:estresse
+relajo:relaxe
+bella:lindo
+sigue:seguir
+viendo:assistindo
+estrellas:estrelas
+abajo:para baixo
+cualquiera:alguém
+allí:lá
+balvin:balvin
+man:homem
+leggo':leggo
+sky:céu
+rompiendo:rompiendo
+fenomenal:fenomenal
+yeah-eh:sim-eh
+prince:Principe
+royce:Royce
+ro-ro-ro-royce:ro-ro-ro-royce
+ay:ai
+vayas:ir
+poli:poli
+donde:onde
+estoy:eu sou
+quiere':quer
+viene:está chegando
+regala:regala
+rosa':rosa
+cuida'ito:cuide-se
+demás:outro
+tienen:eles têm
+celos:ciúme
+cien:cem
+otra':outro '
+cero':zero '
+después:depois de
+del:de
+tercero:terceiro
+¿qué:O que
+dime:me diga
+nerviosa:nervoso
+hoy:hoy
+sale:sai
+hermosa:lindo
+darte:te dar
+rosas:rosas
+yeah-yeah:sim Sim
+han:ter
+dado:dado
+equivoques:errado
+terreno:terreno
+metiéndo:entrando
+siembres:semeaduras
+suelo:chão
+controlando:controlar
+jugando:jogando
+fuego:fogo
+quemo:Eu queimo
+ten:dez
+cuidao:cuide-se
+pienses:pensar
+pienso:eu penso
+tratas:você tenta
+mantenerte:manter você
+dejo:Eu saio
+aún:ainda
+controla:controles
+paso:paso
+elevando:levantando
+pantalón:calça
+guayando:guayando
+cuiado:cuidar
+only:só
+takes:leva
+little:pouco
+bit:pouco
+poquito:poquito
+get:pegue
+hooked:viciado
+this:esta
+enough:o suficiente
+mess:bagunça
+once:uma vez
+know:conhecer
+can't:não pode
+resist:resistir
+u-uh:u-uh
+him:ele
+drivin':dirigindo
+here:Aqui
+with:com
+brakes:freios
+address:endereço
+his:seu
+ways:maneiras
+saved:salvou
+always:sempre
+around:por aí
+been:fui
+lost:perdido
+found:encontrado
+ay-ay-ay-ay-ay-ya:ay-ay-ay-ay-ya
+talking:falando
+li-i-i-ike:li-i-i-ike
+gonna:vai
+hi-i-i-igh:hi-i-i-igh
+give:dar
+feelings:sentimentos
+that'll:isso vai
+never:Nunca
+go:vai
+babe:querida
+crazy:louco
+fucking:porra
+greatest:maior
+askin':perguntando
+current:atual
+situation:situação
+didn't:não fez
+have:ter
+caught:apanhado
+triangle:triângulo
+fucked:fodido
+we:nós
+shit:merda
+few:poucos
+share:compartilhar
+why:porque
+gave:deu
+her:dela
+reasons:motivos
+couple:casal
+pullin':puxando
+till:até
+wheelchairs:cadeiras de rodas
+what's:o que é
+ride:passeio
+let:deixei
+bad:mau
+bitch:cadela
+forward:frente
+more:Mais
+skipping:pulando
+conversations:conversas
+side:lado
+notes:notas
+she's:ela é
+perfect:perfeito
+from:de
+head:cabeça
+toe:dedo do pé
+indiana:indiana
+corajoso:corajoso
+encomendado:confiada
+projota:projota
+vibe:vibe
+eterno:eterno
+dig:escavação
+dom:dom
+shake:mexe
+body:corpo
+pongo:Eu coloquei
+at:a
+dale:dê isso
+mueve:mover
+esa':aquele '
+nalga':nádega
+sólo:somente
+vaina:bainha
+déjame:me deixe
+is:é
+focus:foco
+watch:ver
+throw:lançar
+much:Muito de
+want:quer
+race:raça
+wait:esperar
+time:Tempo
+better:Melhor
+matter:importam
+say:dizer
+wind:vento
+waist:cintura
+play:Toque
+movin':mover'
+then:então
+you're:você é
+standin':substituir'
+fiesta:partido
+barrio:vizinhança
+gastando:gastar
+suela:sola
+baila:dançar
+telenovela:novela
+ferrari:ferrari
+vuelan:eles voam
+ey:ei
+caliente:quente
+frío:frio
+río:rio
+diamante':diamante
+escalofrío':frio
+arroba:a
+al:para
+bio:bio
+rrá:rir
+ave:passarinho
+maría:mary
+¿pa':Pa '
+tiene':tem
+agua:água
+fría:frio
+gocería:iria gostar
+ajá:aha
+malo:ruim
+ere':ere '
+refréscame:me refresque
+cerveza:cerveja
+probar:tente
+heladería:sorveteria
+vamo':vamo
+quería':queria
+wuh:wuh
+allá:ali
+bajaría:iria cair
+prr:prr
+tropkillaz:tropkillaz
+mc:mc
+zaac:zaac
+bartender:barman
+shot:tiro
+sean:ser
+vaya:ir
+precoz:cedo
+nadie:nadie
+debo:Eu devo
+muevo:Eu movo
+juguetito:brinquedinho
+nuevo:novo
+atrevo:atrevo
+aquí:aqui
+sin:sem
+miedo:medo
+vas:você vai
+contigo:com voce
+delicia:delícia
+pruebas:pruebas
+envicia':vício
+malicia:malícia
+perderme:se perder
+alicia:alice
+traviesa:impertinente
+noticia:notícias
+secreto:segredo
+tiene:tem
+libreto:libreto
+hay:existem
+lamentos:arrependimentos
+pendiente:pendente
+hizo:fez
+cotiza:citações
+cotizo:Cito
+niveles:níveis
+cele:cele
+rompa:quebrar
+normas:normas
+aguanta:aguente
+puede:pode
+dé:dar
+prometo:Eu prometo
+johnny:johnny
+díselo:diga a ele
+luian:luian
+mambo:mambo
+kingz:Kingz
+hear:ouvir
+vaya':ir
+equivocar:cometer um erro
+cuida'o:cuidou
+costar:custo
+anormal:anormal
+todos:tudo
+locos:louco
+volvemos:nós voltamos
+empezar:começar
+quieren:eles querem
+hablarme:fala comigo
+llegamos:nós chegamos
+hacemos:nós fazemos
+fuera–:fora
+verdad:verdadeiro
+quiere:quer
+llegan:chegar
+pasa:acontece
+la':o '
+veinte:vinte
+diez:dez
+hecho:hecho
+llegar:chegar
+primero:primeiro
+tratan:eles tentam
+-al:-al
+dinero:dinheiro
+-ar:-ar
+mejoró:melhorado
+vibra:vibra
+ambiente:atmosfera
+manera:caminho
+suficiente:o suficiente
+toca':toca '
+doy:doy
+corriente:atual
+meiga:meiga
+keep:manter
+comin':vindo'
+delatando:traindo
+shy:tímido
+di:di
+ting:tingir
+nah:nah
+could:poderia
+eyes:olhos
+pon:colocar
+sip:trago
+bubbly:borbulhante
+loose:solto
+mismas:mesmo
+ganas:você quer
+tomo:Eu levo
+champaña:champagne
+no':não
+solos:sozinho
+habitación:quarto
+haciéndolo:fazendo isso
+tricks:truques
+waan:waan
+fi:fi
+inna:inna
+bedroom:quarto
+really:realmente
+let's:vamos
+wake:despertar
+neighbors:vizinhos
+hacerlo:faça isso
+debajo:sob
+sábanas:lençóis
+conmigo:comigo
+vecinos:vizinhos
+testigos:testemunhas
+cosas:coisas
+sucias:suja
+movimiento:movimento
+conociendo:sabendo
+síguete:te seguir
+moviendo:movendo-se
+gyal:gyal
+hypnotize:hipnotizar
+deh:deh
+matrix:matriz
+sexy:sexy
+ass:bunda
+thighs:coxas
+work:trabalhos
+hola:hola
+into:em
+mamacita:mamacita
+y'are:y'are
+wine:vinho
+rush:pressa
+curiosidad:curiosidade
+irnos:deixar
+marsh:pântano
+dei:dei
+demorar:atrasar
+escandalizar:escandalizar
+pirando:pirataria
+ladies:senhoras
+gentlemen:cavalheiros
+invejosa:inventivo
+terremoto:terremoto
+rebolo:saltando
+toco:Eu toco
+ligada:encadernado
+an:a
+hmm:Hmm
+tengas:ter
+plata:prata
+sepas:você sabe
+asustes:susto
+ropa:roupas
+pies:pés
+cuerpos:corpos
+mismo:mesmo
+ra:ra
+pa:pa
+nalgas:nádegas
+curando:cicatrização
+medicina:remédio
+despues:depois de
+encima:no topo
+pegas:você bateu
+atras:de volta
+decir:dizer
+traca:traca
+tra:tra
+digan:dizer
+demas:demais
+seducen:seduzir
+luces:luzes
+aja:aha
+dejemos:vamos sair
+otravez:outra vez
+apgamela:ligue-o
+dej:esquerda
+mirada:olhar
+delata:trai
+perfume:perfume
+atrapa:pegar
+serán:será
+ojos:olhos
+ata:gravata
+hacérmelo:faça para mim
+delante:na frente
+pones:você coloca
+indecente:indecente
+siente:sentir
+cuente:contar
+maldad:maldade
+nota:note
+mejor:melhor
+podrás:você pode
+quedarte:permanecer
+confío:Eu confio
+calle:calle
+probarme:prove-me
+quemarme:me queime
+labial:batom
+rojo:vermelho
+besarme:beija-me
+directo:direto
+también:também
+descem:descem
+afrontam:afrontam
+fogosas:fogosas
+incomodam:desconforto
+expulsam:expulsam
+invejosas:invejosas
+babando:babando
+linha:linha
+entro:Eu entro
+regulamentar:regular
+arrebitado:levado embora
+raiar:raiar
+simples:simples
+wow:Uau
+yeh:yeh
+mole:toupeira
+esquentando:intrigante
+vim:vim
+batida:chicoteado
+uuh:uuh
+skip:pular
+conversation:conversação
+sayin':dizendo
+getting:obtendo
+impatient:impaciente
+boy:Garoto
+must:devo
+mistaken:enganado
+'cause:'causa
+gotta:Tenho que
+worth:que vale a pena
+judge:juiz
+first:primeiro
+impressions:impressões
+you'll:você vai
+wanting:querendo
+atention:atenção
+intention:intenção
+maybe:talvez
+might:poderia
+change:mudança
+mind:mente
+foot:pé
+paddle:remo
+trying:tentando
+anything:qualquer coisa
+next:Próximo
+sure:certo
+handle:lidar com
+read:ler
+lips:lábios
+afford:proporcionar
+tell:contar
+benefits:benefícios
+lights:luzes
+low:baixo
+clothes:roupas
+arm:braço
+than:do que
+drink:bebida
+should:devemos
+minute:minuto
+treat:tratar
+queen:rainha
+night:noite
+nex:nex
+jasmim:jasmim
+cravo:cravo
+canela:canela
+funk:funk
+cinderela:cinderela
+imaginar:imagina
+nutella:nutella
+cannes:cannes
+drummond:Drummond
+alerta:alerta
+turu:turu
+turuturu:turuturu
+gruda:caverna
+pouco:pouco
+atormentar:tormento
+vivos:vivo
+predomina:predomina
+aquece:aquece
+calmaria:calmaria
+aguentar:aguentar
+vivendo:vivendo
+riqueza:riqueza
+cultivar:cultivar
+magia:magia
+sinhá:sinha
+genaro:genaro
+bigode:bigode
+saia:saia
+amarrada:ancorado
+colote:colote
+cortar:cortar
+resto:descanso
+moradia:moradia
+lábios:laboratórios
+chorus:coro
+there:lá
+those:Essa
+times:vezes
+fight:luta
+tears:lágrimas
+scared:assustado
+we´re:estavam
+together:juntos
+we´ll:bem
+cause:causar
+fails:falha
+weak:fraco
+ending:terminando
+moments:momentos
+are:está
+too:também
+precious:precioso
+waste:desperdício
+world:mundo
+forever:para sempre
+changing:mudando
+wouldn´t:não seria
+loving:amoroso
+asleep:adormecido
+or:ou
+awake:acordado
+there´s:há
+day:dia
+goes:vai
+don´t:não
+think:pensar
+touched:tocou
+very:muito
+i´ll:eu vou
+surely:certamente
+without:sem
+greater:maior
+gift:presente
+breathe:respirar
+hold:aguarde
+many:muitos
+rivers:rios
+our:nosso
+guide:guia
+us:nos
+test:teste
+faith:fé
+roads:estradas
+find:encontrar
+olha:olha
+bobagem:bobagem
+desencontro:desmarque
+frustrando:frustrando
+faria:faria
+exatamente:exatamente
+guiar:liderar
+acaso:talvez
+pintar:pintar
+evitou:evitou
+envolveu:embrulhar
+caminhos:caminhos
+ja:ja
+tente:tentar
+transformar:transformar
+dispenso:dispenso
+desaparecer:desaparecer
+imitar:imitar
+absurdo:absurdo
+complicou:complicou
+usou:usado
+destinos:destinos
+atraem:atrair
+desencontrar:descobrir
+escondem:esconder
+calou:calou
+renderam:renderam
+desafiar:desafiar
+pedacinho:pedacinho
+conformei:conformei
+aquecer:dor
+giovaanna:giovaanna
+namorar:namorar
+ohohohoho:ohohohoho

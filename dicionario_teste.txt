@@ -10638,7 +10638,8 @@ gafieira:gafieira
 xamegar:xamegar
 xuxamego:xuxamego
 aii:aii
-xux:xuxqué:o que
+xux:xux
+qué:o que
 were:estavam
 well:bem
 wouldnt:não seria
@@ -10648,3 +10649,48 @@ ill:eu vou
 its:Está
 saideira:saideira
 dapn:dapn
+mau:mau
+camon:camon
+im:Eu estou
+cmon:Vamos lá
+bout:ataque
+lookin:olhar dentro
+aint:não é
+gs:gs
+somo:nós somos
+ojo:olho
+envidiosa:invejoso
+juega:jogar
+mientra:enquanto
+meno:menos
+má:mais
+gon:gon
+shouldve:deveria ter
+enviciao:vício
+interesao:interessado
+envenciao:envenenado
+paotro:paotro
+rogao:implorar
+observao:observao
+pal:amigo
+leggo:leggo
+cuidaito:cuide-se
+cero:zero
+cant:não posso
+drivin:condução
+thatll:isso
+askin:perguntando
+didnt:didnt
+pullin:puxando
+whats:o que é
+shes:ela é
+esa:aquele
+nalga:nádega
+movin:mover
+youre:você é
+standin:substituir
+escalofrío:frio
+ere:ere
+quería:queria
+envicia:vício
+comin:vindo
